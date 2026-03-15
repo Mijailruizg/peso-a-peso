@@ -1289,13 +1289,7 @@ select.input { cursor: pointer; }
 </div>
 
 <script>
-// ═══════════════════════════════════════════════
-//   PESO A PESO — SISTEMA INTELIGENTE
-//   Lógica completa con localStorage persistente
-// ═══════════════════════════════════════════════
 
-
-// --- DROPDOWN DE PRODUCTOS EN VENTA ---
 function showProductoDropdown() {
   const input = document.getElementById('vDescripcion');
   const dropdown = document.getElementById('productoDropdown');
@@ -1326,7 +1320,6 @@ function selectProductoDropdown(nombre, precio) {
   hideProductoDropdown();
 }
 
-// Al perder foco o cambiar, si coincide con producto, autollenar precio
 document.addEventListener('DOMContentLoaded', function() {
   const desc = document.getElementById('vDescripcion');
   if (desc) {
@@ -1418,36 +1411,10 @@ function checkSession() {
 
 // ── SEED DEMO DATA ───────────────────────────────
 function seedDemoData() {
-  const now = Date.now();
-  const day = 86400000;
-  const ventas = [
-    { id: uid(), descripcion: 'Arroz 1kg', monto: 12, cantidad: 3, categoria: 'producto', pago: 'efectivo', nota: '', fecha: now - day*2, ts: now - day*2 },
-    { id: uid(), descripcion: 'Aceite Fino 1L', monto: 18, cantidad: 2, categoria: 'producto', pago: 'efectivo', nota: '', fecha: now - day*2 + 3600000, ts: now - day*2 + 3600000 },
-    { id: uid(), descripcion: 'Coca Cola 2L', monto: 15, cantidad: 4, categoria: 'producto', pago: 'qr', nota: '', fecha: now - day, ts: now - day },
-    { id: uid(), descripcion: 'Jabón Omo', monto: 8, cantidad: 5, categoria: 'producto', pago: 'efectivo', nota: '', fecha: now - day + 7200000, ts: now - day + 7200000 },
-    { id: uid(), descripcion: 'Azúcar 1kg', monto: 10, cantidad: 3, categoria: 'producto', pago: 'efectivo', nota: '', fecha: now - 7200000, ts: now - 7200000 },
-  ];
-  const gastos = [
-    { id: uid(), descripcion: 'Compra mercadería', monto: 350, categoria: 'mercaderia', proveedor: 'EMAPA', fecha: now - day*2, ts: now - day*2 },
-    { id: uid(), descripcion: 'Luz eléctrica', monto: 45, categoria: 'servicios', proveedor: 'ENDE', fecha: now - day, ts: now - day },
-    { id: uid(), descripcion: 'Transporte flete', monto: 30, categoria: 'transporte', proveedor: '', fecha: now - 86000000, ts: now - 86000000 },
-  ];
-  const inventario = [
-    { id: uid(), nombre: 'Arroz 1kg', categoria: 'Alimentos', costo: 8, precio: 12, stock: 24, minStock: 10 },
-    { id: uid(), nombre: 'Aceite Fino 1L', categoria: 'Alimentos', costo: 13, precio: 18, stock: 8, minStock: 5 },
-    { id: uid(), nombre: 'Coca Cola 2L', categoria: 'Bebidas', costo: 10, precio: 15, stock: 3, minStock: 6 },
-    { id: uid(), nombre: 'Jabón Omo 350g', categoria: 'Limpieza', costo: 5.5, precio: 8, stock: 15, minStock: 5 },
-    { id: uid(), nombre: 'Azúcar 1kg', categoria: 'Alimentos', costo: 7, precio: 10, stock: 2, minStock: 8 },
-    { id: uid(), nombre: 'Pan Lactal', categoria: 'Alimentos', costo: 12, precio: 17, stock: 6, minStock: 4 },
-  ];
-  const clientes = [
-    { id: uid(), nombre: 'María Flores', telefono: '76543210', deuda: 45, nota: 'Cliente frecuente', fecha: now - day*5 },
-    { id: uid(), nombre: 'Don Pedro', telefono: '79876543', deuda: 0, nota: 'Paga siempre al contado', fecha: now - day*10 },
-  ];
-  setUserDB('ventas', ventas);
-  setUserDB('gastos', gastos);
-  setUserDB('inventario', inventario);
-  setUserDB('clientes', clientes);
+  setUserDB('ventas', []);
+  setUserDB('gastos', []);
+  setUserDB('inventario', []);
+  setUserDB('clientes', []);
 }
 
 // ── APP START ─────────────────────────────────────
